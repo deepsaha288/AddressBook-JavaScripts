@@ -58,19 +58,35 @@ class AddressBook{
     }
 }
 
-let addressBook = [];
+let addressBook = [] ;
 try{
     let contact1 = new AddressBook("Mark","Robinson","Malibu","Venice","California",100019,9019291971,"mark@gmail.com");
     let contact2 = new AddressBook("Robert","Downey","Broklyn","Manhattan","Newyork",300013,8918192191,"robert@gmail.com");
-    
+    let contact3 = new AddressBook("Chirs","Davidson","Saltlake","Saltlakecity","Texas",400018,8891823349,"chris@gmail.com");
+    let contact4 = new AddressBook("Keem","Star","Capital","Phoenix","Arizona",866019,7827826798,"keem@gmail.com");
+
     addressBook.push(contact1); 
     addressBook.push(contact2);
-    
-    if( contact1.getfirstname == "Mark" ){
-        contact1.setfirstname = "Maggie";
+    addressBook.push(contact3);
+    addressBook.push(contact4);
+
+    console.log(addressBook);
+    console.log("Size before deltion: "+addressBook.length);
+    console.log("+++++++++++++++"); 
+
+    if( addressBook.find( name => name.firstname == 'Mark' ) ){
+        addressBook.find( name => name.setfirstname = 'Robin' );
+    }else{ console.log("false"); }
+
+    if( addressBook.find( name => name.firstname == 'Keem' ) ){
+        console.log(addressBook.findIndex(name => name.firstname == 'Keem'));
+        addressBook.splice(3,1);
+        console.log("+++++++++++++++");
     }
+    
 }catch(e){
     console.error(e);
 }
 
 console.log(addressBook);
+console.log("Size after deltion: "+addressBook.length);
