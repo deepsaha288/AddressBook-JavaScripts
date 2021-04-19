@@ -71,7 +71,9 @@ try{
     addressBook.push(contact4);
 
     console.log(addressBook);
-    console.log("Size before deltion: "+addressBook.length);
+    let countArr = addressBook.map(ele => typeof ele.getfirstname === 'string');
+    let sum = countArr.reduce((prev, curr)=> prev + curr); 
+    console.log("Size of array before deltion: "+sum);
     console.log("+++++++++++++++"); 
 
     if( addressBook.find( name => name.firstname == 'Mark' ) ){
@@ -87,6 +89,3 @@ try{
 }catch(e){
     console.error(e);
 }
-
-console.log(addressBook);
-console.log("Size after deltion: "+addressBook.length);
